@@ -1,0 +1,13 @@
+debug
+ng serve
+
+Produktiv compilieren:
+ng build --prod --base-href "http://mathbot-edtec.github.io"
+
+Anschließend veröffentlichen auf dem gh-pages branch:
+ngh
+oder 
+ngh --message="deploy"
+
+https://github.com/angular-schule/angular-cli-ghpages
+https://alligator.io/angular/deploying-angular-app-github-pages/
