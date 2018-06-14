@@ -17,5 +17,4 @@ import { ChatModule } from './chat/chat.module';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-
  }
