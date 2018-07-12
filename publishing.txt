@@ -2,7 +2,7 @@ debug
 ng serve
 
 Produktiv compilieren:
-ng build --prod --base-href "http://mathbot-edtec.github.io"
+ng build --prod --base-href "https://mathbot-edtec.github.io/mathbot/"
 
 Anschließend veröffentlichen auf dem gh-pages branch:
 ngh

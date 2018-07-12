@@ -20,9 +20,8 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     // appends to array after each new message is added to feedSource
-    this.messages = this.chat.conversation.asObservable()
-        .scan((acc, val) => acc.concat(val) );
-    this.formValue = "Hi!";
+    this.messages = this.chat.conversation.asObservable().scan((acc, val) => acc.concat(val) );
+    this.formValue = "Who are you?";
     this.sendMessage();
   }
 
@@ -30,7 +29,7 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
     this.scrollToBottom();        
     console.log(document.getElementById('scrollMe').offsetHeight)
     //if (document.getElementById('scrollMe').offsetHeight >= this.maxHeight)
-      this.myScrollContainer.nativeElement.style.height = this.maxHeight.toString() + "px";
+    this.myScrollContainer.nativeElement.style.height = this.maxHeight.toString() + "px";
   } 
 
   scrollToBottom(): void {

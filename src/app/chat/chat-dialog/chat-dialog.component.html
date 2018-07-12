@@ -2,9 +2,8 @@
 <div class="w3-hide-small">
       <div id="scrollMe" #scrollMe style="overflow-x: hidden; overflow-y: auto; height: auto;" class="w3-padding w3-margin-bottom">
     <ng-container *ngFor="let message of messages | async">
-      <div class="message w3-round-large"  [ngClass]="{ 'from w3-theme-l1': message.sentBy === 'bot',
+      <div class="message w3-round-large" [innerHTML]=message.content [ngClass]="{ 'from w3-theme-l1': message.sentBy === 'bot',
                                                         'to w3-theme-l3':   message.sentBy === 'user' }">
-        {{ message.content }}
       </div>
     </ng-container>
   </div>
@@ -21,9 +20,8 @@
 <!-- Mobile Seite -->
 <div class="w3-hide-large w3-hide-medium">  
       <ng-container *ngFor="let message of messages | async">
-        <div class="message w3-round-large"  [ngClass]="{ 'from w3-theme-l1': message.sentBy === 'bot',
+        <div class="message w3-round-large" [innerHTML]=message.content [ngClass]="{ 'from w3-theme-l1': message.sentBy === 'bot',
                                                           'to w3-theme-l3':   message.sentBy === 'user' }">
-          {{ message.content }}
         </div>
       </ng-container>
     

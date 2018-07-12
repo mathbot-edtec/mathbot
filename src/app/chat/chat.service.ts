@@ -7,7 +7,13 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export class Message {
-  constructor(public content: string, public sentBy: string) {}
+  constructor(public content: string, public sentBy: string) {this.content = this.content.replace(new RegExp('\n', 'g'), "<br />");}
+}
+
+class Describer {
+  static describe(instance): Array<string> {
+      return Object.getOwnPropertyNames(instance);
+  }
 }
 
 @Injectable()
@@ -28,12 +34,17 @@ export class ChatService {
 
     return this.client.textRequest(msg)
                .then(res => {
-                  const speech = res.result.fulfillment.speech;
+                  console.log(res);
+                  //const speech = res.result.fulfillment.speech;
+                  //let x = Describer.describe(res.result.fulfillment);
+                  let x = Object.values(Object.values(res.result.fulfillment)[1][0])[1]
+                  console.log(x);
+                  //const speech = res.result.fulfillment.speech;
+                  const speech = x;
                   const botMessage = new Message(speech, 'bot');
                   this.update(botMessage);
                });
   }
-
 
 
   // Adds message to source
